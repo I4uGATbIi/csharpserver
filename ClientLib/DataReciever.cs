@@ -1,25 +1,27 @@
-﻿using System;
+﻿using GeneralLib;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using GeneralLib;
 
-namespace Server
+namespace ClientLib
 {
-    public enum ClientPackets
+    public enum ServerPackets
     {
-        CHelloServer = 1,
+        SWelcomeMsg = 1,
     }
 
-    class DataReciever
+    static class DataReciever
     {
-        public static void HandleHelloServer(int connectionID, byte[] data)
+        public static void HandleWelcomeMsg(byte[] data)
         {
             ByteBuffer buffer = new ByteBuffer();
             buffer.WriteBytes(data);
             int packetID = buffer.ReadInteger();
             string msg = buffer.ReadString();
             buffer.Dispose();
-            Console.WriteLine(msg);
+
+            //RETURN MSG SOMEWHERE
+            DataSender.SendHelloServer();
         }
     }
 }

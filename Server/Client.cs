@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
+using GeneralLib;
 
 namespace Server
 {
@@ -18,7 +19,7 @@ namespace Server
             socket.SendBufferSize = 4096;
             socket.ReceiveBufferSize = 4096;
             Stream = socket.GetStream();
-
+            recBuffer = new byte[4096];
             Stream.BeginRead(recBuffer, 0, socket.ReceiveBufferSize, OnRecieveData, null);
             Console.WriteLine($"Incoming connection from {socket.Client.RemoteEndPoint.ToString()}");
         }

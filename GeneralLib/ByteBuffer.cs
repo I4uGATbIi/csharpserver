@@ -108,7 +108,7 @@ namespace GeneralLib
             }
         }
 
-        public byte[] ReadByteArray(int length, bool Peek = true)
+        public byte[] ReadBytes(int length, bool Peek = true)
         {
             if (Buff.Count > readPos)
             {

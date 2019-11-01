@@ -45,7 +45,7 @@ namespace ClientLib
                 if (pLength <= clientBuffer.Length - 4)
                 {
                     clientBuffer.ReadInteger();
-                    data = clientBuffer.ReadByteArray(pLength);
+                    data = clientBuffer.ReadBytes(pLength);
                     HandleDataPackets(data);
                 }
 

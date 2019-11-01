@@ -44,7 +44,7 @@ namespace Server
                 if(pLength <= ClientManager.client[connectionID].buffer.Length -4 )
                 {
                     ClientManager.client[connectionID].buffer.ReadInteger();
-                    data = ClientManager.client[connectionID].buffer.ReadByteArray(pLength);
+                    data = ClientManager.client[connectionID].buffer.ReadBytes(pLength);
                     HandleDataPackets(connectionID, data);
                 }
 
